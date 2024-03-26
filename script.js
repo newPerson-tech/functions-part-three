@@ -73,14 +73,12 @@ function fillArray() {
     return array;
 }
 
-//Iterating one more time through final arr and printing it to console
+//Iterating one more time through final arr and printing it to console as a 2-dim using json.stringify()
 function printArray(array) {
     console.log("Array filled by the user:");
-    for (let i = 0; i < array.length; i++) {
-        console.log(array[i]);
-    }
+    console.log(JSON.stringify(array));
 }
 
-// Example usage:
 const userArray = fillArray();
+
 printArray(userArray);
