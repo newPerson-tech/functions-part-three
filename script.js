@@ -49,3 +49,38 @@ function doMath(x, y, znak) {
 const result = doMath(x, y, znak);
 
 console.log(result);
+
+/** Task 3: Write a function where user fills two-dimentional array with numbers. User also sets length of external and internal arrays. Print out the array filled by a user */
+
+function fillArray() {
+    //Asking user to set length for external and internal arrays
+    const externalLength = parseInt(prompt("Enter the length of the external array:"));
+    const internalLength = parseInt(prompt("Enter the length of the internal arrays:"));
+
+    //Declaring empty external array
+    const array = [];
+
+    //Iterating through external arr, declaring empty internal arr, for each index asking user to set a number, filling array
+    for (let i = 0; i < externalLength; i++) {
+        const internalArray = [];
+        for (let j = 0; j < internalLength; j++) {
+            const element = parseInt(prompt(`Enter the element for index (${i}, ${j}):`));
+            internalArray.push(element);
+        }
+        array.push(internalArray);
+    }
+
+    return array;
+}
+
+//Iterating one more time through final arr and printing it to console
+function printArray(array) {
+    console.log("Array filled by the user:");
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+}
+
+// Example usage:
+const userArray = fillArray();
+printArray(userArray);
