@@ -82,3 +82,25 @@ function printArray(array) {
 const userArray = fillArray();
 
 printArray(userArray);
+
+/** Taskk 4: Write a function that receives two parameters - string, and array of characters - which sets a user via prompt. Function deletes respective characters form a string and returns changed string */
+
+const inputString = prompt('Enter any string: ');
+const charsArr = prompt('Enter characters to remove from string, separated by commas: ');
+const charactersToRemove = charsArr.split(',').map(char => char.trim());
+
+function removeCharactersFromString(stringReceived, charactersToRemove) {
+    //set original string to changed one
+    let stringChanged = stringReceived;
+
+    //iterating through each characters (array) which user set to remove
+    charactersToRemove.forEach(char => {
+        const regex = new RegExp(char, 'g');
+        stringChanged = stringChanged.replace(regex, '');
+    });
+
+    return stringChanged;
+}
+
+const outputString = removeCharactersFromString(inputString, charactersToRemove);
+console.log("String after removing characters:", outputString);
